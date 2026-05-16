@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply box-border;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  @apply bg-background text-foreground;
+  font-family: "Inter", sans-serif;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Space Grotesk", sans-serif;
+  @apply font-bold;
+}
+
+/* Smooth transitions */
+a,
+button,
+input,
+select,
+textarea {
+  @apply transition-all duration-300;
+}
+
+/* Glassmorphism */
+.glass {
+  @apply backdrop-blur-md bg-white/[0.05] border border-white/[0.1];
+}
+
+.glass-dark {
+  @apply backdrop-blur-md bg-black/[0.3] border border-white/[0.05];
+}
+
+/* Glow effects */
+.glow-accent {
+  @apply relative;
+}
+
+.glow-accent::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(600px at 50% 50%, rgba(0, 217, 255, 0.15) 0%, transparent 80%);
+  pointer-events: none;
+}
+
+/* Subtle animations */
+@keyframes subtle-float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-subtle-float {
+  animation: subtle-float 6s ease-in-out infinite;
+}
+
+/* Prevent layout shift */
+html {
+  scrollbar-gutter: stable;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
